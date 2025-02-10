@@ -1,16 +1,17 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import Onboarding from "react-native-onboarding-swiper";
-import { useNavigation } from "expo-router";
+import { useRouter } from "expo-router";
 
 // Import Onboarding Images
-import onboarding1 from '../../../assets/images/home/onboarding1.png';
-import onboarding2 from '../../../assets/images/home/onboarding2.png';
-import onboarding3 from '../../../assets/images/home/onboarding3.png';
-import '../../../assets/css/onboarding.css';
+import onboarding1 from "../../../assets/images/home/onboarding1.png";
+import onboarding2 from "../../../assets/images/home/onboarding2.png";
+import onboarding3 from "../../../assets/images/home/onboarding3.png";
+import "../../../assets/css/onboarding.css";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const OnboardingScreen = () => {
-  const navigation = useNavigation();
+  const router = useRouter();
 
   // Custom Done Button
   const DoneButton = ({ ...props }) => (
@@ -26,11 +27,17 @@ const OnboardingScreen = () => {
     </TouchableOpacity>
   );
 
+  // onBoardingComplete
+  const onDone = async () => {
+    await AsyncStorage.setItem("hasOnBoarded", "true");
+    router.replace("/(tabs)/(home)");
+  };
+
   return (
     <View style={{ flex: 1, backgroundColor: "#fff" }}>
       <Onboarding
-        onSkip={() => navigation.replace("home")} // Skip navigates to home
-        onDone={() => navigation.replace("home")} // Done navigates to home
+        onSkip={onDone} // Skip navigates to home
+        onDone={onDone} // Done navigates to home
         DoneButtonComponent={DoneButton}
         NextButtonComponent={NextButton}
         bottomBarHighlight={false} // Removes bottom highlight
@@ -40,7 +47,8 @@ const OnboardingScreen = () => {
             backgroundColor: "#fff",
             image: <Image source={onboarding1} style={styles.image} />,
             title: "Welcome to India Court",
-            subtitle: "Your trusted legal companion for expert advice and seamless legal services.",
+            subtitle:
+              "Your trusted legal companion for expert advice and seamless legal services.",
             titleStyles: styles.title,
             subTitleStyles: styles.subtitle,
           },
@@ -48,7 +56,8 @@ const OnboardingScreen = () => {
             backgroundColor: "#fff",
             image: <Image source={onboarding2} style={styles.image} />,
             title: "Expert Guidance",
-            subtitle: "Connect with top lawyers, access legal documents, and resolve disputes effortlessly.",
+            subtitle:
+              "Connect with top lawyers, access legal documents, and resolve disputes effortlessly.",
             titleStyles: styles.title,
             subTitleStyles: styles.subtitle,
           },
@@ -56,7 +65,8 @@ const OnboardingScreen = () => {
             backgroundColor: "#fff",
             image: <Image source={onboarding3} style={styles.image} />,
             title: "Quick & Easy Access",
-            subtitle: "Track cases, e-sign documents, and stay updated with legal news.",
+            subtitle:
+              "Track cases, e-sign documents, and stay updated with legal news.",
             titleStyles: styles.title,
             subTitleStyles: styles.subtitle,
           },
