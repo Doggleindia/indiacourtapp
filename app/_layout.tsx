@@ -9,7 +9,9 @@ import "react-native-reanimated";
 export default function RootLayout() {
   return (
     <>
-      <Stack screenOptions={{ headerShown: false }} />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="+not-found" options={{ headerShown: true }} />
+      </Stack>
       <StatusBar style="auto" />
     </>
   );
