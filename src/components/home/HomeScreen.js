@@ -1,11 +1,12 @@
-import { AntDesign, MaterialIcons } from "@expo/vector-icons";
-import { Image, ScrollView, Text, View } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
+import { Image, ScrollView, View } from "react-native";
 import { TextInput } from "react-native-paper";
-import RedFortImage from "../../../assets/images/home/red_fort.png";
-import JudgementLawyerImage from "../../../assets/images/home/judgement_lawyer.png";
+const RedFortImage = require("../../../assets/images/home/red_fort.png");
+const JudgementLawyerImage = require("../../../assets/images/home/judgement_lawyer.png");
 import TabItem from "../tabItem/TabItem";
 import ComponentHeader from "../headers/ComponentHeader";
 import IconTextCard from "../iconTextCard/IconTextCard";
+import { useRouter } from "expo-router";
 
 export default function HomeScreen() {
   const categoryTabs = ["Legal Books", "Books", "Judgements", "Resources"];
@@ -83,7 +84,7 @@ export default function HomeScreen() {
 
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           {categoryTabs.map((tab, _) => (
-            <TabItem title={tab} selected={_ === 0} />
+            <TabItem title={tab} selected={_ === 0} key={_} />
           ))}
         </View>
       </View>
@@ -154,7 +155,7 @@ export default function HomeScreen() {
           }}
         >
           {judgementTabs.map((tab, _) => (
-            <View style={{ width: "21%" }}>
+            <View style={{ width: "21%" }} key={_}>
               <TabItem title={tab} selected={_ === 0} />
             </View>
           ))}

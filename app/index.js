@@ -20,7 +20,7 @@ export default function Index() {
 
   if (isFirstLaunch === null) return null; // Prevent rendering until we check AsyncStorage
 
-  if (!isFirstLaunch) return <Redirect href="/(tabs)/(home)" />;
+  if (!isFirstLaunch) return <Redirect href="/(auth)" />;
 
   return (
     <View style={{ flex: 1 }}>
