@@ -1,10 +1,13 @@
 import { Tabs } from "expo-router";
 import React from "react";
-import { MaterialIcons } from "@expo/vector-icons";
 import {
   HomeHeaderLeft,
   HomeHeaderRight,
 } from "@/components/headers/HomeHeader";
+import Home from "../../assets/icons/Home";
+import Services from "../../assets/icons/Services";
+import Categories from "../../assets/icons/Categories";
+import Profile from "../../assets/icons/Profile";
 
 export default function TabLayout() {
   return (
@@ -22,40 +25,33 @@ export default function TabLayout() {
         name="(home)"
         options={{
           headerShown: true,
-          title: "",
+          headerTitle: "",
+          title: "Home",
           headerShadowVisible: false,
           headerLeft: () => <HomeHeaderLeft />,
           headerRight: () => <HomeHeaderRight />,
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="home" size={size} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <Home fill={color} />,
         }}
       />
       <Tabs.Screen
         name="(services)"
         options={{
           title: "Services",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="library-books" size={size} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <Services fill={color} />,
         }}
       />
       <Tabs.Screen
         name="(categories)"
         options={{
           title: "Categories",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="category" size={size} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <Categories stroke={color} />,
         }}
       />
       <Tabs.Screen
         name="(profile)"
         options={{
           title: "Profile",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="person" size={size} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <Profile stroke={color} />,
         }}
       />
     </Tabs>

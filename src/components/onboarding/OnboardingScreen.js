@@ -30,7 +30,7 @@ const OnboardingScreen = () => {
   // onBoardingComplete
   const onDone = async () => {
     await AsyncStorage.setItem("hasOnBoarded", "true");
-    router.replace("/(tabs)/(home)");
+    router.replace("/(auth)");
   };
 
   return (

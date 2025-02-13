@@ -1,18 +1,11 @@
-import {
-  Image,
-  ImageBackground,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { ImageBackground, ScrollView, StyleSheet, View } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Input from "../input/Input";
-import { Button } from "react-native-paper";
+import Input from "./components/Input";
 import { useRouter } from "expo-router";
+import LogoTitle from "./components/LogoTitle";
+import SubmitButton from "./components/SubmitButton";
 const BackgroundImage = require("../../../assets/images/auth/supreme_court.png");
-const LogoImage = require("../../../assets/images/home/logo.png");
 
 export default function ChangePasswordScreen() {
   const router = useRouter();
@@ -26,52 +19,27 @@ export default function ChangePasswordScreen() {
           contentContainerStyle={styles.scrollView}
           showsVerticalScrollIndicator={false}
         >
-          <View style={styles.logoContainer}>
-            <Image
-              source={LogoImage}
-              resizeMode="contain"
-              style={{ maxHeight: 100 }}
-            />
-            <Text
-              style={{
-                textAlign: "center",
-                fontWeight: "600",
-                color: "#FFF",
-                fontSize: 20,
-              }}
-            >
-              Change Password
-            </Text>
-          </View>
+          <LogoTitle title="Change Password" />
 
-          <View style={{ width: "80%", marginTop: 50 }}>
-            <View style={{ gap: 16 }}>
-              <View style={{ gap: 25 }}>
-                <Input
-                  label="Enter New Password"
-                  placeholder="*********"
-                  secureText
-                />
+          <View style={{ width: "80%" }}>
+            <View style={{ gap: 25 }}>
+              <Input
+                label="Enter New Password"
+                placeholder="*********"
+                secureText
+              />
 
-                <Input
-                  label="Confirm Password"
-                  placeholder="*********"
-                  secureText
-                />
-              </View>
+              <Input
+                label="Confirm Password"
+                placeholder="*********"
+                secureText
+              />
             </View>
 
-            <Button
+            <SubmitButton
+              label="Submit"
               onPress={() => router.dismissTo("/(auth)")}
-              style={{
-                backgroundColor: "#056B38",
-                borderRadius: 4,
-                marginTop: 25,
-              }}
-              textColor="#FFF"
-            >
-              Submit
-            </Button>
+            />
           </View>
         </ScrollView>
       </ImageBackground>
@@ -90,7 +58,6 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
-  logo: { width: "50%" },
   forgotPassword: { textAlign: "right", color: "white" },
   scrollView: {
     justifyContent: "center",
@@ -98,5 +65,4 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 40,
   },
-  logoContainer: { alignItems: "center", gap: 25 },
 });

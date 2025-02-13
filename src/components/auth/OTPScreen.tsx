@@ -1,5 +1,4 @@
 import {
-  Image,
   ImageBackground,
   ScrollView,
   StyleSheet,
@@ -8,12 +7,12 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Button } from "react-native-paper";
-import OtpInput from "./OtpInput";
+import OtpInput from "./components/OtpInput";
 import { useRouter } from "expo-router";
 import { Octicons } from "@expo/vector-icons";
+import LogoTitle from "./components/LogoTitle";
+import SubmitButton from "./components/SubmitButton";
 const BackgroundImage = require("../../../assets/images/auth/supreme_court.png");
-const LogoImage = require("../../../assets/images/home/logo.png");
 
 const OTP_DIGITS = 6;
 
@@ -39,24 +38,11 @@ export default function OTPScreen() {
           }}
           showsVerticalScrollIndicator={false}
         >
-          <View style={{ alignItems: "center", gap: 25, marginBottom: 50 }}>
-            <Image
-              source={LogoImage}
-              resizeMode="contain"
-              style={{ maxHeight: 100 }}
-            />
-            <Text
-              style={{
-                textAlign: "center",
-                fontWeight: "600",
-                color: "#FFF",
-                fontSize: 20,
-              }}
-            >
-              {!isVerified ? "OTP Verification" : "OTP Verified Successfully"}
-            </Text>
-          </View>
-
+          <LogoTitle
+            title={
+              !isVerified ? "OTP Verification" : "OTP Verified Successfully"
+            }
+          />
           <View style={{ width: "80%", gap: 16 }}>
             {isVerified ? (
               <View style={{ alignItems: "center", marginBottom: 14 }}>
@@ -93,13 +79,10 @@ export default function OTPScreen() {
               </>
             )}
 
-            <Button
-              style={{ backgroundColor: "#056B38", borderRadius: 4 }}
-              textColor="#FFF"
+            <SubmitButton
+              label={isVerified ? "Continue" : "Verify"}
               onPress={() => router.replace("/(tabs)/(home)")}
-            >
-              {isVerified ? "Continue" : "Verify"}
-            </Button>
+            />
           </View>
         </ScrollView>
       </ImageBackground>
@@ -119,6 +102,5 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
-  logo: { width: "50%" },
   forgotPassword: { textAlign: "right", color: "white" },
 });

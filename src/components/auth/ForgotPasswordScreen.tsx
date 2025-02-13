@@ -1,5 +1,4 @@
 import {
-  Image,
   ImageBackground,
   ScrollView,
   StyleSheet,
@@ -8,11 +7,11 @@ import {
 } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Input from "../input/Input";
-import { Button } from "react-native-paper";
+import Input from "./components/Input";
 import { useRouter } from "expo-router";
+import LogoTitle from "./components/LogoTitle";
+import SubmitButton from "./components/SubmitButton";
 const BackgroundImage = require("../../../assets/images/auth/supreme_court.png");
-const LogoImage = require("../../../assets/images/home/logo.png");
 
 export default function ForgotPasswordScreen() {
   const router = useRouter();
@@ -31,38 +30,15 @@ export default function ForgotPasswordScreen() {
           }}
           showsVerticalScrollIndicator={false}
         >
-          <View style={{ alignItems: "center", gap: 25, marginBottom: 50 }}>
-            <Image
-              source={LogoImage}
-              resizeMode="contain"
-              style={{ maxHeight: 100 }}
-            />
-            <Text
-              style={{
-                textAlign: "center",
-                fontWeight: "600",
-                color: "#FFF",
-                fontSize: 20,
-              }}
-            >
-              Forgot Password
-            </Text>
-          </View>
+          <LogoTitle title="Forgot Password" />
 
           <View style={{ width: "80%" }}>
             <Input label="Email Address" placeholder="xxx@gmail.com" />
 
-            <Button
+            <SubmitButton
+              label="Submit"
               onPress={() => router.push("/(auth)/changePassword")}
-              style={{
-                backgroundColor: "#056B38",
-                borderRadius: 4,
-                marginTop: 25,
-              }}
-              textColor="#FFF"
-            >
-              Submit
-            </Button>
+            />
 
             <Text
               style={{
@@ -93,6 +69,5 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
-  logo: { width: "50%" },
   forgotPassword: { textAlign: "right", color: "white" },
 });

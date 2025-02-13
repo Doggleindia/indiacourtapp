@@ -1,5 +1,4 @@
 import {
-  Image,
   ImageBackground,
   ScrollView,
   StyleSheet,
@@ -9,12 +8,13 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Input from "../input/Input";
+import Input from "./components/Input";
 import { Button } from "react-native-paper";
 import { AntDesign } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import LogoTitle from "./components/LogoTitle";
+import SubmitButton from "./components/SubmitButton";
 const BackgroundImage = require("../../../assets/images/auth/supreme_court.png");
-const LogoImage = require("../../../assets/images/home/logo.png");
 
 export default function AuthScreen() {
   const [isLogin, setIsLogin] = useState(true);
@@ -22,7 +22,8 @@ export default function AuthScreen() {
 
   const toggleScreen = () => setIsLogin((prev) => !prev);
 
-  const toOTP = () => router.navigate("/(auth)/otp");
+  const onLogin = () => router.replace("/(tabs)/(home)");
+  const onSignUp = () => router.navigate("/(auth)/otp");
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -33,14 +34,7 @@ export default function AuthScreen() {
           contentContainerStyle={styles.scrollView}
           showsVerticalScrollIndicator={false}
         >
-          <View style={styles.logoContainer}>
-            <Image
-              source={LogoImage}
-              resizeMode="contain"
-              style={{ maxHeight: 100 }}
-            />
-            <Text style={styles.title}>{isLogin ? "Login" : "Sign Up"}</Text>
-          </View>
+          <LogoTitle title={isLogin ? "Login" : "Sign Up"} />
 
           <View style={{ width: "80%" }}>
             <View style={{ gap: 16 }}>
@@ -68,16 +62,41 @@ export default function AuthScreen() {
               )}
             </View>
 
-            <Button style={styles.loginButton} textColor="#FFF" onPress={toOTP}>
-              {isLogin ? "Login" : "Create Account"}
-            </Button>
+            <SubmitButton
+              label={isLogin ? "Login" : "Create Account"}
+              onPress={isLogin ? onLogin : onSignUp}
+            />
 
             {isLogin && (
               <>
-                <Text style={styles.continueWithText}>Or continue with</Text>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    paddingHorizontal: 20,
+                    width: "100%",
+                    gap: 8,
+                  }}
+                >
+                  <View
+                    style={{
+                      borderColor: "#FFF",
+                      borderBottomWidth: 1,
+                      flex: 1,
+                    }}
+                  />
+                  <Text style={styles.continueWithText}>Or continue with</Text>
+                  <View
+                    style={{
+                      borderColor: "#FFF",
+                      borderBottomWidth: 1,
+                      flex: 1,
+                    }}
+                  />
+                </View>
 
                 <Button
-                  onPress={toOTP}
+                  onPress={onLogin}
                   icon={() => <AntDesign name="google" size={30} />}
                   textColor="#000"
                   style={styles.googleButton}
@@ -111,26 +130,17 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
-  logo: { width: "50%" },
   forgotPassword: { textAlign: "right", color: "white" },
   scrollView: {
     justifyContent: "center",
     alignItems: "center",
     paddingVertical: 40,
   },
-  logoContainer: { alignItems: "center", gap: 25, marginBottom: 40 },
-  title: {
-    textAlign: "center",
-    fontWeight: "600",
-    color: "#FFF",
-    fontSize: 20,
-  },
-  loginButton: { backgroundColor: "#056B38", borderRadius: 4, marginTop: 25 },
   text: { textAlign: "center", color: "#FFF", marginTop: 16, fontSize: 12 },
   continueWithText: {
     textAlign: "center",
     color: "#FFF",
-    fontSize: 10,
+    fontSize: 12,
     marginVertical: 32,
   },
   googleButton: {
