@@ -8,6 +8,7 @@ export default function RootLayout() {
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="resources/index" options={{ headerShown: false }} />
         <Stack.Screen name="books/index" options={{ headerShown: false }} />
+        <Stack.Screen name="glossary/index" options={{ headerShown: false }} />
       </Stack>
     </SafeAreaView>
   );
