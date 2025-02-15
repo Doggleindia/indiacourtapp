@@ -1,6 +1,5 @@
 import { ImageBackground, ScrollView, StyleSheet, View } from "react-native";
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import Input from "./components/Input";
 import { useRouter } from "expo-router";
 import LogoTitle from "./components/LogoTitle";
@@ -11,7 +10,7 @@ export default function ChangePasswordScreen() {
   const router = useRouter();
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <>
       <ImageBackground source={BackgroundImage} style={styles.background}>
         <View style={styles.overlay} />
         <ScrollView
@@ -34,16 +33,16 @@ export default function ChangePasswordScreen() {
                 placeholder="*********"
                 secureText
               />
-            </View>
 
-            <SubmitButton
-              label="Submit"
-              onPress={() => router.dismissTo("/(auth)")}
-            />
+              <SubmitButton
+                label="Submit"
+                onPress={() => router.dismissTo("/(auth)")}
+              />
+            </View>
           </View>
         </ScrollView>
       </ImageBackground>
-    </SafeAreaView>
+    </>
   );
 }
 

@@ -15,6 +15,6 @@ export default function BackHeader() {
 }
 
 const styles = StyleSheet.create({
-  backButton: { flexDirection: "row", alignItems: "center", paddingLeft: 10 },
+  backButton: { flexDirection: "row", alignItems: "center" },
   backText: { marginLeft: 5, fontSize: 16 },
 });

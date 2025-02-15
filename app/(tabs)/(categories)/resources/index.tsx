@@ -1,10 +1,6 @@
-import { Text, View } from "react-native";
 import React from "react";
+import ResourcesScreen from "@/components/resources/Resources";
 
-export default function resources() {
-  return (
-    <View>
-      <Text>resources</Text>
-    </View>
-  );
+export default function Resources() {
+  return <ResourcesScreen />;
 }

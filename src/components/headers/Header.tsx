@@ -12,7 +12,7 @@ export default function Header({
 }) {
   const router = useRouter();
   return (
-    <View>
+    <View style={styles.header}>
       {backButtonVisisble && (
         <TouchableOpacity
           onPress={() => router.back()}
@@ -29,6 +29,7 @@ export default function Header({
 }
 
 const styles = StyleSheet.create({
+  header: { gap: 4, paddingTop: 16 },
   backButton: { flexDirection: "row", alignItems: "center", paddingLeft: 10 },
   backText: { marginLeft: 5, fontSize: 18 },
   title: {

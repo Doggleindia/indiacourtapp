@@ -7,7 +7,6 @@ import {
   View,
 } from "react-native";
 import React, { useState } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import Input from "./components/Input";
 import { Button } from "react-native-paper";
 import { AntDesign } from "@expo/vector-icons";
@@ -26,7 +25,7 @@ export default function AuthScreen() {
   const onSignUp = () => router.navigate("/(auth)/otp");
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <>
       <ImageBackground source={BackgroundImage} style={styles.background}>
         <View style={styles.overlay} />
         <ScrollView
@@ -60,12 +59,12 @@ export default function AuthScreen() {
                   <Text style={styles.forgotPassword}>Forgot Password ?</Text>
                 </TouchableOpacity>
               )}
-            </View>
 
-            <SubmitButton
-              label={isLogin ? "Login" : "Create Account"}
-              onPress={isLogin ? onLogin : onSignUp}
-            />
+              <SubmitButton
+                label={isLogin ? "Login" : "Create Account"}
+                onPress={isLogin ? onLogin : onSignUp}
+              />
+            </View>
 
             {isLogin && (
               <>
@@ -115,7 +114,7 @@ export default function AuthScreen() {
           </View>
         </ScrollView>
       </ImageBackground>
-    </SafeAreaView>
+    </>
   );
 }
 

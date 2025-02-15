@@ -1,7 +1,6 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../headers/Header";
 import { MaterialIcons } from "@expo/vector-icons";
 import IconTextCard from "../iconTextCard/IconTextCard";
@@ -35,25 +34,33 @@ export default function ServicesScreen() {
   ];
 
   return (
-    <SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
+    <View style={{ backgroundColor: "white", flex: 1 }}>
       <Header title="Services" />
 
       <View style={styles.container}>
-        {cards.map((card, _) => (
-          <IconTextCard {...card} key={_} />
-        ))}
+        <View style={styles.cardsContainer}>
+          {cards.map((card, _) => (
+            <View key={_} style={styles.card}>
+              <IconTextCard {...card} />
+            </View>
+          ))}
+        </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    justifyContent: "center",
-    padding: 20,
-    gap: 12,
-    rowGap: 16,
     flexWrap: "wrap",
+    padding: 20,
+  },
+  card: { flexGrow: 1, width: "40%" },
+  cardsContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 6,
+    rowGap: 10,
+    alignItems: "stretch",
   },
 });

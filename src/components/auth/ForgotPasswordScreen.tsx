@@ -6,7 +6,6 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import Input from "./components/Input";
 import { useRouter } from "expo-router";
 import LogoTitle from "./components/LogoTitle";
@@ -17,7 +16,7 @@ export default function ForgotPasswordScreen() {
   const router = useRouter();
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <>
       <ImageBackground source={BackgroundImage} style={styles.background}>
         <View style={styles.overlay} />
         <ScrollView
@@ -32,7 +31,7 @@ export default function ForgotPasswordScreen() {
         >
           <LogoTitle title="Forgot Password" />
 
-          <View style={{ width: "80%" }}>
+          <View style={{ width: "80%", gap: 16 }}>
             <Input label="Email Address" placeholder="xxx@gmail.com" />
 
             <SubmitButton
@@ -53,7 +52,7 @@ export default function ForgotPasswordScreen() {
           </View>
         </ScrollView>
       </ImageBackground>
-    </SafeAreaView>
+    </>
   );
 }
 

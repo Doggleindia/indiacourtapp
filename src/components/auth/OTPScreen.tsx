@@ -6,7 +6,6 @@ import {
   View,
 } from "react-native";
 import React, { useState } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import OtpInput from "./components/OtpInput";
 import { useRouter } from "expo-router";
 import { Octicons } from "@expo/vector-icons";
@@ -25,7 +24,7 @@ export default function OTPScreen() {
   const onSubmit = () => setIsVerified(true);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <>
       <ImageBackground source={BackgroundImage} style={styles.background}>
         <View style={styles.overlay} />
         <ScrollView
@@ -86,7 +85,7 @@ export default function OTPScreen() {
           </View>
         </ScrollView>
       </ImageBackground>
-    </SafeAreaView>
+    </>
   );
 }
 

@@ -10,6 +10,11 @@ export default function RootLayout() {
         headerLeft: () => <BackHeader />,
         title: "",
       }}
-    />
+    >
+      <Stack.Screen
+        name="bookDetails"
+        options={{ title: "Book 1", headerLeft: () => null }}
+      />
+    </Stack>
   );
 }

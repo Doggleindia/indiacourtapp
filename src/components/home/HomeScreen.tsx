@@ -4,6 +4,9 @@ import BooksAndDocs from "./components/BooksAndDocs";
 import Categories from "./components/Categories";
 import Judgements from "./components/Judgements";
 import SearchInput from "./components/SearchInput";
+import Resources from "./components/Resources";
+import Services from "./components/Services";
+import Helpline from "./components/Helpline";
 
 export default function HomeScreen() {
   return (
@@ -20,6 +23,12 @@ export default function HomeScreen() {
       <BooksAndDocs />
 
       <Judgements />
+
+      <Resources />
+
+      <Services />
+
+      <Helpline />
     </ScrollView>
   );
 }
