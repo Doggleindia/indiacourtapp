@@ -18,7 +18,6 @@ export default function HelpLineCard({ title, number }: Props) {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: "#FEF0EA",
-    flex: 1,
     borderRadius: 12,
     padding: 15,
   },

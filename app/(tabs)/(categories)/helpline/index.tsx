@@ -1,10 +1,6 @@
-import { Text, View } from "react-native";
 import React from "react";
+import HelplineScreen from "@/components/helpline/HelplineScreen";
 
 export default function helpline() {
-  return (
-    <View>
-      <Text>helpline</Text>
-    </View>
-  );
+  return <HelplineScreen />;
 }

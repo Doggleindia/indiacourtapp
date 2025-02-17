@@ -1,10 +1,6 @@
-import { Text, View } from "react-native";
 import React from "react";
+import EnquiryScreen from "@/components/enquiry/EnquiryScreen";
 
 export default function otherServices() {
-  return (
-    <View>
-      <Text>other-services</Text>
-    </View>
-  );
+  return <EnquiryScreen />;
 }
