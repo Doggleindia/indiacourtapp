@@ -2,6 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Header({
   title,
@@ -12,7 +13,7 @@ export default function Header({
 }) {
   const router = useRouter();
   return (
-    <View style={styles.header}>
+    <SafeAreaView style={styles.header}>
       {backButtonVisisble && (
         <TouchableOpacity
           onPress={() => router.back()}
@@ -24,7 +25,7 @@ export default function Header({
       )}
 
       <Text style={styles.title}>{title}</Text>
-    </View>
+    </SafeAreaView>
   );
 }
 

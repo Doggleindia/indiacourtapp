@@ -3,6 +3,7 @@ import React from "react";
 import ComponentHeader from "@/components/headers/ComponentHeader";
 import { FontAwesome5, FontAwesome6 } from "@expo/vector-icons";
 import IconTextCard from "@/components/iconTextCard/IconTextCard";
+import { useRouter } from "expo-router";
 
 const color = "#F26727";
 const size = 30;
@@ -22,9 +23,14 @@ const servicesCards = [
 ];
 
 export default function Services() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
-      <ComponentHeader title="Services" />
+      <ComponentHeader
+        title="Services"
+        onPress={() => router.push("/(tabs)/(services)")}
+      />
 
       <View style={styles.cardsContainer}>
         {servicesCards.map((service, _) => (

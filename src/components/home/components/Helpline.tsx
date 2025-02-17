@@ -2,6 +2,7 @@ import { StyleSheet, View } from "react-native";
 import React from "react";
 import ComponentHeader from "@/components/headers/ComponentHeader";
 import HelpLineCard from "@/components/helplineCard/HelpLineCard";
+import { useRouter } from "expo-router";
 
 const helplineCards = [
   { title: "Emergnecy", number: 112 },
@@ -11,9 +12,14 @@ const helplineCards = [
 ];
 
 export default function Helpline() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
-      <ComponentHeader title="Helpline Numbers" />
+      <ComponentHeader
+        title="Helpline Numbers"
+        onPress={() => router.push("/(tabs)/(categories)/helpline")}
+      />
 
       <View style={styles.cardsContainer}>
         {helplineCards.map((helpineCard, _) => (

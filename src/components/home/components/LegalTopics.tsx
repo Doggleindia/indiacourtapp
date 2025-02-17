@@ -3,6 +3,7 @@ import React from "react";
 import ComponentHeader from "@/components/headers/ComponentHeader";
 import { FontAwesome5, FontAwesome6, MaterialIcons } from "@expo/vector-icons";
 import IconTextCard from "@/components/iconTextCard/IconTextCard";
+import { useRouter } from "expo-router";
 
 const color = "#F26727";
 const size = 30;
@@ -35,9 +36,14 @@ const topicsCards = [
 ];
 
 export default function LegalTopics() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
-      <ComponentHeader title="Legal Topics" />
+      <ComponentHeader
+        title="Legal Topics"
+        onPress={() => router.push("/(tabs)/(categories)/legalTopics")}
+      />
 
       <View style={styles.cardsContainer}>
         {topicsCards.map((topic, _) => (

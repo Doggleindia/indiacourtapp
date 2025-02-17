@@ -3,6 +3,7 @@ import React from "react";
 import ComponentHeader from "@/components/headers/ComponentHeader";
 import TabItem from "@/components/tabItem/TabItem";
 import JudgementCard from "./JudgementCard";
+import { useRouter } from "expo-router";
 const JudgementLawyerImage = require("../../../../assets/images/home/judgement_lawyer.png");
 
 const judgementTabs = [
@@ -13,9 +14,14 @@ const judgementTabs = [
 ];
 
 export default function Judgements() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
-      <ComponentHeader title="Judgements" />
+      <ComponentHeader
+        title="Judgements"
+        onPress={() => router.push("/(tabs)/(categories)/judgements")}
+      />
 
       <View style={styles.tabsContainer}>
         {judgementTabs.map((tab, _) => (
