@@ -29,8 +29,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: "#056B38",
   },
-  title: {},
+  title: { textAlign: "center" },
   selectedTitle: {
     color: "#FFF",
+    textAlign: "center",
   },
 });

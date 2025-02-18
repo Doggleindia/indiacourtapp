@@ -1,22 +1,18 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-export default function JudgementCard() {
+type Props = {
+  label: string;
+  heading: string;
+  description?: string;
+};
+
+export default function JudgementCard({ label, heading, description }: Props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Supreme court judgement</Text>
-      <Text style={styles.description}>
-        NOIDA Toll Bridge Company Ltd. Vs. Federation of NOIDA Residents Welfare
-        Association
-      </Text>
-      <Text style={styles.content}>
-        The NOIDA Toll Bridge Company Limited (NTBCL), has preferred the instant
-        appeal questioning the judgement dated 26.10.2016 passed by the High
-        Court of Judicature at Allahabad (High Court). The issue before the High
-        Court concerned a challenge to the collection and levying of toll, as
-        legitimised by the provisions enumerated in the Agreement dated
-        12.11.1997
-      </Text>
+      <Text style={styles.title}>{label}</Text>
+      <Text style={styles.description}>{heading}</Text>
+      {description && <Text style={styles.content}>{description}</Text>}
     </View>
   );
 }

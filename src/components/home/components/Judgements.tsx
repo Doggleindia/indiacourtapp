@@ -32,7 +32,11 @@ export default function Judgements() {
       </View>
       <Image source={JudgementLawyerImage} />
 
-      <JudgementCard />
+      <JudgementCard
+        label="Supreme court judgement"
+        heading="NOIDA Toll Bridge Company Ltd. Vs. Federation of NOIDA Residents Welfare Association"
+        description="The NOIDA Toll Bridge Company Limited (NTBCL), has preferred the instant appeal questioning the judgement dated 26.10.2016 passed by the High Court of Judicature at Allahabad (High Court). The issue before the High Court concerned a challenge to the collection and levying of toll, as legitimised by the provisions enumerated in the Agreement dated 12.11.1997"
+      />
     </View>
   );
 }

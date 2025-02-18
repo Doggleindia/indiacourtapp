@@ -1,6 +1,9 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import SubmitButton from "@/components/auth/components/SubmitButton";
+import { Divider } from "react-native-paper";
+import { useRouter } from "expo-router";
+const LawStatue = require("../../../../assets/images/articles/law_queen.png");
 
 type Props = {
   title: string;
@@ -8,16 +11,27 @@ type Props = {
 };
 
 export default function ArticleCard({ title, description }: Props) {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
-      <View style={styles.imageContainer}></View>
+      <View style={styles.imageContainer}>
+        <Image
+          source={LawStatue}
+          style={{ flex: 1, width: "100%", height: "100%" }}
+        />
+      </View>
 
       <View style={styles.rightContainer}>
         <Text style={styles.title}>{title}</Text>
+        <Divider />
         <Text style={styles.description}>{description}</Text>
 
         <View style={styles.buttonContainer}>
-          <SubmitButton label="Read Now" onPress={() => {}} />
+          <SubmitButton
+            label="Read Now"
+            onPress={() => router.push("/articles/article-details")}
+          />
         </View>
       </View>
     </View>
