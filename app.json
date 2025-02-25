@@ -35,7 +35,8 @@
           "image": "./assets/images/home/logo.png",
           "resizeMode": "contain"
         }
-      ]
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
