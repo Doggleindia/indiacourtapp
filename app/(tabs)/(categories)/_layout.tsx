@@ -11,6 +11,7 @@ export default function RootLayout() {
       <Stack.Screen name="articles" options={{ headerShown: false }} />
       <Stack.Screen name="bare-acts" options={{ headerShown: false }} />
       <Stack.Screen name="judgements" options={{ headerShown: false }} />
+      <Stack.Screen name="legalTopics/index" options={{ headerShown: false }} />
       <Stack.Screen
         name="other-services/index"
         options={{ headerShown: false }}

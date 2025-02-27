@@ -1,10 +1,6 @@
-import { Text, View } from "react-native";
 import React from "react";
+import LegalTopicsScreen from "@/components/legalTopics/LegalTopicsScreen";
 
 export default function legalTopics() {
-  return (
-    <View>
-      <Text>legalTopics</Text>
-    </View>
-  );
+  return <LegalTopicsScreen />;
 }

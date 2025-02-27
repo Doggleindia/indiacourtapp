@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Input from "../enquiry/components/Input";
 import SubmitButton from "../auth/components/SubmitButton";
+import { Entypo } from "@expo/vector-icons";
 
 export default function AccountSettingsScreen() {
   return (
@@ -18,7 +19,20 @@ export default function AccountSettingsScreen() {
       </View>
 
       <View style={{ alignSelf: "center" }}>
-        <SubmitButton label="Update" onPress={() => {}} />
+        <SubmitButton
+          label="Update"
+          onPress={() => {}}
+          buttonStyles={{ paddingHorizontal: 20 }}
+        />
+      </View>
+
+      <View style={{ position: "absolute", bottom: 20, right: 20 }}>
+        <Entypo
+          name="chat"
+          size={24}
+          color="white"
+          style={{ backgroundColor: "#0072B1", padding: 8, borderRadius: 50 }}
+        />
       </View>
     </View>
   );

@@ -1,8 +1,10 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
 import { Modal, Portal } from "react-native-paper";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+const LogoutImage = require("../../../../assets/images/logout.png");
+const LogoutSuccessImage = require("../../../../assets/images/logout_door.png");
 
 type Props = {
   isOpen: boolean;
@@ -11,37 +13,64 @@ type Props = {
 
 export default function LogoutModal({ isOpen, onClose }: Props) {
   const router = useRouter();
+  const [isLoggedOut, setIsLoggedOut] = useState(false);
 
-  const handleLogout = () => router.dismissTo("/(auth)");
+  const handleClose = () => {
+    if (isLoggedOut) router.dismissTo("/(auth)");
+    else onClose();
+  };
 
   return (
     <Portal>
-      <Modal visible={isOpen} onDismiss={onClose}>
+      <Modal visible={isOpen} onDismiss={handleClose}>
         <View style={styles.container}>
           <MaterialIcons
-            onPress={onClose}
+            onPress={handleClose}
             name="close"
             size={26}
             style={{ marginLeft: "auto" }}
           />
-          <Text style={styles.heading}>Are you sure you want to logout?</Text>
-          <Text style={styles.content}>
-            You will need to log in again to access your account. Make sure to
-            save any ongoing work before logging out.
-          </Text>
+          {isLoggedOut ? (
+            <>
+              <View style={styles.dashedLine}>
+                <View style={styles.dashedLine}>
+                  <Image
+                    source={LogoutSuccessImage}
+                    style={{ width: 50, height: 50 }}
+                    resizeMode="contain"
+                  />
+                </View>
+              </View>
 
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={onClose}>
-              <View style={styles.button}>
-                <Text style={styles.buttonText}>Cancel</Text>
+              <Text style={[styles.heading, { textAlign: "center" }]}>
+                You have been successfully logged out.
+              </Text>
+            </>
+          ) : (
+            <>
+              <Text style={styles.heading}>
+                Are you sure you want to logout?
+              </Text>
+              <Text style={styles.content}>
+                You will need to log in again to access your account. Make sure
+                to save any ongoing work before logging out.
+              </Text>
+
+              <Image source={LogoutImage} />
+              <View style={styles.buttonContainer}>
+                <TouchableOpacity onPress={handleClose}>
+                  <View style={styles.button}>
+                    <Text style={styles.buttonText}>Cancel</Text>
+                  </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => setIsLoggedOut(true)}>
+                  <View style={[styles.button, { backgroundColor: "#F45762" }]}>
+                    <Text style={styles.buttonText}>Log Out</Text>
+                  </View>
+                </TouchableOpacity>
               </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleLogout}>
-              <View style={[styles.button, { backgroundColor: "#F45762" }]}>
-                <Text style={styles.buttonText}>Log Out</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
+            </>
+          )}
         </View>
       </Modal>
     </Portal>
@@ -79,5 +108,14 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "white",
+  },
+  dashedLine: {
+    borderWidth: 1,
+    borderStyle: "dashed",
+    borderRadius: 50,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "#C08729",
   },
 });

@@ -26,6 +26,7 @@ export default function SettingsScreen() {
     {
       label: "Help and Support",
       icon: <FontAwesome name="bell" color={color} size={size} />,
+      onPress: () => router.push("/help-and-support"),
     },
     {
       label: "Privacy Policy",
