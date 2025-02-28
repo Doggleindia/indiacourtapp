@@ -1,16 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { GlossaryItem } from "../full_glossary";
 
-type GlossaryItem = {
-  word: string;
-  meaning: string;
-};
-
-export default function WordMeaning({ word, meaning }: GlossaryItem) {
+export default function WordMeaning({ term, definition }: GlossaryItem) {
   return (
     <View>
-      <Text style={styles.word}>{word}</Text>
-      <Text>{meaning}</Text>
+      <Text style={styles.word}>{term}</Text>
+      <Text>{definition}</Text>
     </View>
   );
 }
