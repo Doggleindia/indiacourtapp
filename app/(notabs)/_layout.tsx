@@ -4,17 +4,12 @@ import "react-native-reanimated";
 
 export default function RootLayout() {
   return (
-    <Stack
-      screenOptions={{
-        headerTitleAlign: "center",
-        headerLeft: () => <BackHeader />,
-        title: "",
-      }}
-    >
+    <Stack>
       <Stack.Screen
         name="bookDetails"
-        options={{ title: "Book 1", headerLeft: () => null }}
+        options={{ title: "Book 1", headerTitleAlign: "center" }}
       />
+      <Stack.Screen name="chatWithUs" options={{ headerShown: false }} />
     </Stack>
   );
 }

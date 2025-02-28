@@ -15,7 +15,10 @@ export default function ProfileScreen() {
   const options = [
     { title: "Edit Profile", onPress: () => router.push("/account-settings") },
     { title: "Account Information" },
-    { title: "Notifications" },
+    {
+      title: "Notifications",
+      onPress: () => router.push("/chatWithUs"),
+    },
     {
       title: "Settings",
       onPress: () => router.push("/(tabs)/(profile)/(settings)"),

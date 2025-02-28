@@ -1,14 +1,35 @@
-import { StyleSheet, TextInput, View } from "react-native";
-import React from "react";
+import {
+  StyleSheet,
+  TextInput,
+  TextInputProps,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import React, { useState } from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import SubmitButton from "@/screens/auth/components/SubmitButton";
 
-export default function SearchInput() {
+type Props = {
+  inputProps?: TextInputProps;
+};
+
+export default function SearchInput({ inputProps }: Props) {
+  const [text, setText] = useState("");
+
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.input} />
-        <AntDesign name="closecircleo" color="#C08729" size={20} />
+        <TextInput
+          style={styles.input}
+          value={text}
+          onChangeText={setText}
+          {...inputProps}
+        />
+        {text !== "" && (
+          <TouchableOpacity onPress={() => setText("")}>
+            <AntDesign name="closecircleo" color="#C08729" size={20} />
+          </TouchableOpacity>
+        )}
       </View>
 
       <SubmitButton
