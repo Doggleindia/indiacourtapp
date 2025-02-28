@@ -1,5 +1,5 @@
+import GlossaryScreen from "@/screens/glossary/Glossary";
 import React from "react";
-import GlossaryScreen from "@/components/glossary/Glossary";
 
 export default function glossary() {
   return <GlossaryScreen />;

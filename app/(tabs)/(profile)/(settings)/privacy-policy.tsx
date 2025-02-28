@@ -1,4 +1,4 @@
-import PrivacyPolicyScreen from "@/components/settings/PrivacyPolicyScreen";
+import PrivacyPolicyScreen from "@/screens/settings/PrivacyPolicyScreen";
 import React from "react";
 
 export default function PrivacyPolicy() {

@@ -1,4 +1,4 @@
-import AccountSettingsScreen from "@/components/settings/AccountSettingsScreen";
+import AccountSettingsScreen from "@/screens/settings/AccountSettingsScreen";
 import React from "react";
 
 export default function AccountSettings() {

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Redirect } from "expo-router";
-import OnboardingScreen from "../src/components/onboarding/OnboardingScreen";
+import OnboardingScreen from "@/screens/onboarding/OnboardingScreen";
 
 export default function Index() {
   const [isFirstLaunch, setIsFirstLaunch] = useState(null);

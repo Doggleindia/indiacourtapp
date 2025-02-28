@@ -1,4 +1,4 @@
-import ChangePasswordScreen from "@/components/auth/ChangePasswordScreen";
+import ChangePasswordScreen from "@/screens/auth/ChangePasswordScreen";
 import React from "react";
 
 export default function changePassword() {

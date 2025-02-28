@@ -1,5 +1,5 @@
 import React from "react";
-import BooksScreen from "@/components/books/Books";
+import BooksScreen from "@/screens/books/Books";
 
 export default function books() {
   return <BooksScreen />;

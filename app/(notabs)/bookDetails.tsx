@@ -1,5 +1,5 @@
 import React from "react";
-import BookDetailsScreen from "@/components/bookDetails/BookDetails";
+import BookDetailsScreen from "@/screens/books/BookDetails";
 import { Stack, useLocalSearchParams } from "expo-router";
 import { View } from "react-native";
 
