@@ -1,10 +1,6 @@
-import { Text, View } from "react-native";
 import React from "react";
+import CaseStatusCheckerScreen from "@/screens/caseStatusChecker/CaseStatusCheckerScreen";
 
 export default function CaseStatusChecker() {
-  return (
-    <View>
-      <Text>CaseStatusChecker</Text>
-    </View>
-  );
+  return <CaseStatusCheckerScreen />;
 }

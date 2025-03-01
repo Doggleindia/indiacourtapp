@@ -4,7 +4,7 @@ import React from "react";
 export default function NumbeIcon({ number }: { number: number }) {
   return (
     <View style={styles.circle}>
-      <Text style={styles.circleText}>{number + 1}</Text>
+      <Text style={styles.circleText}>{number}</Text>
     </View>
   );
 }

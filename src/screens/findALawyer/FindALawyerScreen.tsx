@@ -74,8 +74,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   description: { fontSize: 16, marginTop: 16 },
-  cardsContainer: { flexDirection: "row", gap: 10, margin: 20 },
-
+  cardsContainer: {
+    flexDirection: "row",
+    gap: 10,
+    marginVertical: 20,
+  },
   formContainer: {
     borderWidth: 1,
     borderColor: "#C08729",
