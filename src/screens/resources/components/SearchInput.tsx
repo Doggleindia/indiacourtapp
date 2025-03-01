@@ -11,9 +11,10 @@ import SubmitButton from "@/screens/auth/components/SubmitButton";
 
 type Props = {
   inputProps?: TextInputProps;
+  showButton?: boolean;
 };
 
-export default function SearchInput({ inputProps }: Props) {
+export default function SearchInput({ inputProps, showButton = true }: Props) {
   const [text, setText] = useState("");
 
   return (
@@ -32,15 +33,17 @@ export default function SearchInput({ inputProps }: Props) {
         )}
       </View>
 
-      <SubmitButton
-        onPress={() => {}}
-        label="Search"
-        buttonStyles={{
-          borderRadius: 0,
-          height: "100%",
-          paddingHorizontal: 8,
-        }}
-      />
+      {showButton && (
+        <SubmitButton
+          onPress={() => {}}
+          label="Search"
+          buttonStyles={{
+            borderRadius: 0,
+            height: "100%",
+            paddingHorizontal: 8,
+          }}
+        />
+      )}
     </View>
   );
 }
@@ -53,7 +56,6 @@ const styles = StyleSheet.create({
   inputContainer: {
     backgroundColor: "#FFF",
     borderWidth: 1,
-    borderRightWidth: 0,
     flexDirection: "row",
     borderColor: "#C08729",
     alignItems: "center",

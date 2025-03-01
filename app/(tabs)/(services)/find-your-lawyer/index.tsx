@@ -1,10 +1,6 @@
-import { Text, View } from "react-native";
 import React from "react";
+import FindALawyerScreen from "@/screens/findALawyer/FindALawyerScreen";
 
 export default function FindYourLawyer() {
-  return (
-    <View>
-      <Text>FindYourLawyer</Text>
-    </View>
-  );
+  return <FindALawyerScreen />;
 }

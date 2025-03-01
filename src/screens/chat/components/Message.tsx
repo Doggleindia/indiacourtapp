@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import MessageBubbleSelf from "../../../../assets/icons/messageBubbleSelf";
-import MessageBubble from "../../../../assets/icons/messageBubble";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import MessageBubble from "@/icons/MessageBubble";
+import MessageBubbleSelf from "@/icons/MessageBubbleSelf";
 
 type Props = {
   isSelfMessage?: boolean;

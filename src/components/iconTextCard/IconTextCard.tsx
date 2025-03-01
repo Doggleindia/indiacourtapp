@@ -1,17 +1,25 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import {
+  StyleProp,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  ViewStyle,
+} from "react-native";
 import React from "react";
 
 export default function IconTextCard({
   icon,
   text,
   onPress,
+  containerStyles,
 }: {
   icon: JSX.Element;
   text: string;
   onPress?: () => void;
+  containerStyles?: StyleProp<ViewStyle>;
 }) {
   return (
-    <TouchableOpacity style={styles.item} onPress={onPress}>
+    <TouchableOpacity style={[styles.item, containerStyles]} onPress={onPress}>
       {icon}
       <Text style={{ textAlign: "center" }}>{text}</Text>
     </TouchableOpacity>

@@ -4,10 +4,10 @@ import {
   HomeHeaderLeft,
   HomeHeaderRight,
 } from "@/components/headers/HomeHeader";
-import Home from "../../assets/icons/Home";
-import Services from "../../assets/icons/Services";
-import Categories from "../../assets/icons/Categories";
-import Profile from "../../assets/icons/Profile";
+import Categories from "@/icons/Categories";
+import Home from "@/icons/Home";
+import Services from "@/icons/Services";
+import Profile from "@/icons/Profile";
 
 export default function TabLayout() {
   return (
