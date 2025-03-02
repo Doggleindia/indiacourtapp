@@ -41,7 +41,7 @@ export default function ServicesScreen() {
         <View style={styles.cardsContainer}>
           {cards.map((card, _) => (
             <View key={_} style={styles.card}>
-              <IconTextCard {...card} />
+              <IconTextCard {...card} containerStyles={{ flex: 0 }} />
             </View>
           ))}
         </View>
@@ -55,12 +55,10 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     padding: 20,
   },
-  card: { flexGrow: 1, width: "40%" },
+  card: { flexGrow: 1 },
   cardsContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: 6,
-    rowGap: 10,
-    alignItems: "stretch",
+    gap: 10,
   },
 });

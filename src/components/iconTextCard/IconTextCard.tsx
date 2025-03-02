@@ -2,6 +2,7 @@ import {
   StyleProp,
   StyleSheet,
   Text,
+  TextStyle,
   TouchableOpacity,
   ViewStyle,
 } from "react-native";
@@ -12,16 +13,18 @@ export default function IconTextCard({
   text,
   onPress,
   containerStyles,
+  textStyles,
 }: {
   icon: JSX.Element;
   text: string;
   onPress?: () => void;
   containerStyles?: StyleProp<ViewStyle>;
+  textStyles?: StyleProp<TextStyle>;
 }) {
   return (
     <TouchableOpacity style={[styles.item, containerStyles]} onPress={onPress}>
       {icon}
-      <Text style={{ textAlign: "center" }}>{text}</Text>
+      <Text style={[{ textAlign: "center" }, textStyles]}>{text}</Text>
     </TouchableOpacity>
   );
 }
@@ -32,7 +35,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 12,
     borderRadius: 4,
-    paddingVertical: 24,
+    paddingVertical: 12,
     backgroundColor: "white",
     shadowColor: "rgba(0, 0, 0, 1)",
     shadowOffset: { width: 4, height: 8 },

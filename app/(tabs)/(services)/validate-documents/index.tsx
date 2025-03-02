@@ -1,10 +1,6 @@
-import { Text, View } from "react-native";
 import React from "react";
+import ValidateDocumentsScreen from "@/screens/validateDocuments/ValidateDocumentsScreen";
 
 export default function ValidateDocuments() {
-  return (
-    <View>
-      <Text>ValidateDocuments</Text>
-    </View>
-  );
+  return <ValidateDocumentsScreen />;
 }
