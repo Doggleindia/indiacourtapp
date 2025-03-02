@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Feather, FontAwesome } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export const HomeHeaderLeft = () => {
   return (
@@ -18,7 +19,22 @@ export const HomeHeaderRight = () => {
   );
 };
 
+export const HomeHeader = () => {
+  return (
+    <SafeAreaView style={styles.header}>
+      <HomeHeaderLeft />
+      <HomeHeaderRight />
+    </SafeAreaView>
+  );
+};
+
 const styles = StyleSheet.create({
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: 10,
+    backgroundColor: "white",
+  },
   leftContainer: {
     marginLeft: 20,
     width: 36,

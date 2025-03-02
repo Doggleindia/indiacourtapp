@@ -24,12 +24,12 @@ export default function TabLayout() {
       <Tabs.Screen
         name="(home)"
         options={{
-          headerShown: true,
+          // headerShown: true,
           headerTitle: "",
           title: "Home",
-          headerShadowVisible: false,
-          headerLeft: () => <HomeHeaderLeft />,
-          headerRight: () => <HomeHeaderRight />,
+          // headerShadowVisible: false,
+          // headerLeft: () => <HomeHeaderLeft />,
+          // headerRight: () => <HomeHeaderRight />,
           tabBarIcon: ({ color }) => <Home fill={color} />,
         }}
       />

@@ -1,4 +1,4 @@
-import { ScrollView } from "react-native";
+import { ScrollView, View } from "react-native";
 import LegalTopics from "./components/LegalTopics";
 import BooksAndDocs from "./components/BooksAndDocs";
 import Categories from "./components/Categories";
@@ -7,28 +7,34 @@ import SearchInput from "./components/SearchInput";
 import Resources from "./components/Resources";
 import Services from "./components/Services";
 import Helpline from "./components/Helpline";
+import { HomeHeader } from "@/components/headers/HomeHeader";
 
 export default function HomeScreen() {
   return (
-    <ScrollView
-      style={{ flex: 1, backgroundColor: "#FFF" }}
-      contentContainerStyle={{ gap: 20 }}
-    >
-      <SearchInput />
+    <View style={{ flex: 1 }}>
+      <HomeHeader />
 
-      <Categories />
+      <ScrollView
+        style={{ flex: 1, backgroundColor: "#FFF" }}
+        contentContainerStyle={{ gap: 20, marginTop: 8 }}
+        showsVerticalScrollIndicator={false}
+      >
+        <SearchInput />
 
-      <LegalTopics />
+        <Categories />
 
-      <BooksAndDocs />
+        <LegalTopics />
 
-      <Judgements />
+        <BooksAndDocs />
 
-      <Resources />
+        <Judgements />
 
-      <Services />
+        <Resources />
 
-      <Helpline />
-    </ScrollView>
+        <Services />
+
+        <Helpline />
+      </ScrollView>
+    </View>
   );
 }
