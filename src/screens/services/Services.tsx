@@ -31,6 +31,11 @@ export default function ServicesScreen() {
       onPress: () => router.push("/(tabs)/(services)/case-status-checker"),
       icon: <MaterialIcons name="question-mark" size={size} color={color} />,
     },
+    {
+      text: "Join Our Legal Team",
+      onPress: () => router.push("/(tabs)/(services)/join-our-legal-team"),
+      icon: <MaterialIcons name="groups" size={size} color={color} />,
+    },
   ];
 
   return (
