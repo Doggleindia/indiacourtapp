@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import SearchInput from "../resources/components/SearchInput";
 import { Divider } from "react-native-paper";
 import FAQItem from "./components/FAQItem";
-import { Entypo } from "@expo/vector-icons";
+import ChatButton from "./components/ChatButton";
 
 const FAQs = [
   {
@@ -58,14 +58,7 @@ export default function HelpAndSupportScreen() {
         ))}
       </View>
 
-      <View style={{ position: "absolute", bottom: 20, right: 20 }}>
-        <Entypo
-          name="chat"
-          size={24}
-          color="white"
-          style={{ backgroundColor: "#0072B1", padding: 8, borderRadius: 50 }}
-        />
-      </View>
+      <ChatButton />
     </View>
   );
 }

@@ -17,7 +17,6 @@ export default function ProfileScreen() {
     { title: "Account Information" },
     {
       title: "Notifications",
-      onPress: () => router.push("/chatWithUs"),
     },
     {
       title: "Settings",
