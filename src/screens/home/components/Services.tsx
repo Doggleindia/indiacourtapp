@@ -20,6 +20,10 @@ const servicesCards = [
     text: "Dispute Resolution Tool",
     icon: <FontAwesome5 name="pen-fancy" size={size - 5} color={color} />,
   },
+  {
+    text: "Dispute Resolution Tool",
+    icon: <FontAwesome5 name="pen-fancy" size={size - 5} color={color} />,
+  },
 ];
 
 export default function Services() {
@@ -58,7 +62,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   card: {
-    maxWidth: "30%",
+    maxWidth: "48%",
     flexGrow: 1,
   },
 });

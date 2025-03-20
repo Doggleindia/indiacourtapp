@@ -23,6 +23,8 @@ export default function HomeScreen() {
 
         <Categories />
 
+        <Services />
+
         <LegalTopics />
 
         <BooksAndDocs />
@@ -30,8 +32,6 @@ export default function HomeScreen() {
         <Judgements />
 
         <Resources />
-
-        <Services />
 
         <Helpline />
       </ScrollView>
