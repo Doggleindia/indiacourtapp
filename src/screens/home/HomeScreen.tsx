@@ -8,6 +8,7 @@ import Resources from "./components/Resources";
 import Services from "./components/Services";
 import Helpline from "./components/Helpline";
 import { HomeHeader } from "@/components/headers/HomeHeader";
+import Bills from "./components/Bills";
 
 export default function HomeScreen() {
   return (
@@ -32,6 +33,8 @@ export default function HomeScreen() {
         <Judgements />
 
         <Resources />
+
+        <Bills />
 
         <Helpline />
       </ScrollView>

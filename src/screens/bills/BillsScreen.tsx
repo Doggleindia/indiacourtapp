@@ -14,19 +14,19 @@ import { router } from "expo-router";
 import TabItem from "@/components/tabItem/TabItem";
 const JudgementsImage = require("../../../assets/images/judgments/judgements.png");
 
-const judgementTabs = ["Supreme Court", "High Court"];
+const billsTabs = ["Lok Sabha", "Rajya Sabha"];
 
-export default function JudgementsScreen() {
+export default function BillsScreen() {
   const [selected, setSelected] = useState(0);
 
   return (
     <View style={{ flex: 1, backgroundColor: "#FFF" }}>
-      <Header title="Judgements" backButtonVisisble />
+      <Header title="Bills" backButtonVisisble />
       <View style={styles.mainContainer}>
         <SearchInput />
 
         <View style={styles.tabsContainer}>
-          {judgementTabs.map((tab, index) => (
+          {billsTabs.map((tab, index) => (
             <TouchableOpacity
               style={styles.tabContainer}
               key={index}
@@ -49,14 +49,14 @@ export default function JudgementsScreen() {
               />
             </View>
             <JudgementCard
-              label={judgementTabs[selected] + " Judgement"}
+              label={billsTabs[selected] + " Bill"}
               heading="NOIDA Toll Bridge Company Ltd. Vs. Federation of NOIDA Residents Welfare Association"
               description="The NOIDA Toll Bridge Company Limited (NTBCL), has preferred the instant
-                            appeal questioning the judgement dated 26.10.2016 passed by the High
-                            Court of Judicature at Allahabad (High Court). The issue before the High
-                            Court concerned a challenge to the collection and levying of toll, as
-                            legitimised by the provisions enumerated in the Agreement dated
-                            12.11.1997"
+                              appeal questioning the judgement dated 26.10.2016 passed by the High
+                              Court of Judicature at Allahabad (High Court). The issue before the High
+                              Court concerned a challenge to the collection and levying of toll, as
+                              legitimised by the provisions enumerated in the Agreement dated
+                              12.11.1997"
             />
 
             <View style={{ gap: 20, marginTop: 10 }}>
@@ -67,10 +67,10 @@ export default function JudgementsScreen() {
               </Text>
 
               <TouchableOpacity
-                onPress={() => router.push("/judgements/judgement-details")}
+                onPress={() => router.push("/bills/bill-details")}
               >
                 <JudgementCard
-                  label={judgementTabs[selected]}
+                  label={billsTabs[selected]}
                   heading="NOIDA Toll Bridge Company Ltd. Vs. Federation of NOIDA"
                 />
               </TouchableOpacity>

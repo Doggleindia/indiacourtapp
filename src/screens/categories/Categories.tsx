@@ -56,6 +56,11 @@ export default function CategoriesScreen() {
       onPress: () => router.push("/(tabs)/(categories)/other-services"),
       icon: <MaterialIcons name="settings" size={size} color={color} />,
     },
+    {
+      text: "Bills",
+      onPress: () => router.push("/(tabs)/(categories)/bills"),
+      icon: <MaterialIcons name="pallet" size={size} color={color} />,
+    },
   ];
 
   return (
